@@ -1,0 +1,45 @@
+        <=== BATTLESHIP2020 RULES ===>
+
+        This is a boardgame to be played by 2 players: you and your opponent.
+        The player with the highest score, wins the game.
+        On the board are 4 ships, one of every type described in the table below.
+        Every other turn you have to decide on a location from a grid (10x10 tiles by default) to bomb. 
+        Bombing can only hit one tile and may result in hitting one of the ships which is rewarded with points as listed in the table.
+        When all the tiles, occupied by ship, are hit, the ship sinks, and the points per-hit are doubled.
+        The game ends when all the ships are down. In that case the player with the highest score, wins the game.
+
+                            Size    Points-Per-Hit    Points-When-sunk      Color      
+        Carrier             5               1                 2                 Green
+        Battleship          4               2                 4                 Magenta
+        Submarine           3               3                 6                 Yellow
+        Destroyer           2               4                 8                 Black
+
+        Before starting the game, there are a few options:
+        • One can insert a configuration file in which the board dimensions and the locations of the ships are specified.
+                This file can be selected by clicking on the “Select config file” button.
+                The format for inserting the ship types and according coordinates is as follows: 
+                        •	dimension of square board, i.e. the number of rows and hence also columns
+                        •	4x Ship type from Table 1; Coordinate 1, Coordinate 2, … 
+                                and each coordinate is formatted as follows: row_number * column_number
+                                ATTENTION, row and column numbers can go from 0 -> board dimension -1!!
+
+                Example:
+                8
+                Carrier;3*2;3*3;3*4;3*5;3*6 
+                Battleship;5*6;6*6;7*6;8*6 
+                Submarine;5*2;6*2;7*2;
+                Destroyer;1*7;1*8
+
+        • Second, one can insert Player1's and Player2's name.
+        • Third, dimensions for the board can be set, minimum is 5 for both the rows as the number of columns.
+        • Fourth, the players can also choose a scoring system:
+                1.	same points-per-hit for each player 
+                2.	unique points-per-hit for each player: normal score * (11/10)^flag 
+                        This flag value is 1 for Player2's scores as this players has the disadvantage
+                        of starting as second.
+
+        Finally, one can enter the highscores, check these rules or just play the game. 
+
+        Remark:
+        * All settings set are automatically taking into account if one presses 'Play Game'.
+

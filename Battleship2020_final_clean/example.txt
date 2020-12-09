@@ -1,0 +1,5 @@
+15
+Carrier;3*2;3*3;3*4;3*5;3*6
+Battleship;5*2;5*3;5*4;5*5
+Submarine;6*2;7*2;8*2
+Destroyer;1*7;1*8

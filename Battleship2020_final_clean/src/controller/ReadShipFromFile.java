@@ -18,6 +18,8 @@ public class ReadShipFromFile {
 		try (Scanner sc = new Scanner(new FileReader(file))) {
 			// check if we have enough lines to specify dim and (Game.nrOfShips) number of
 			// ships
+			//flco: stijltip, ik moet best ver scrollen om deze terug te vinden, ook niet direct duidelijk dat deze 
+			//check een exception kan throwen
 			checkNumberOfLines(file);
 
 			sc.useLocale(Locale.ENGLISH);
@@ -54,6 +56,9 @@ public class ReadShipFromFile {
 					+ ship.getClass().getName() + ", please try again.");
 			throw new IllegalArgumentException();
 		} else {
+			//flco: overbodige else, functie stop toch als de vorige if gecalled wordt en dan heb je nu wat
+			//haakjes en wat lijnen minder
+			//ook redundate comments, maar de naamgeving kan hier eventueel wat duidelijker
 			// startcoordinate
 			String[] splittedStartCoo = splittedLine[1].split("\\*");
 			// check format
@@ -69,15 +74,18 @@ public class ReadShipFromFile {
 		}
 	}
 
+	//flco: lange functie, kan dit opgesplitst worden?
 	private static void checkFormatSplittedCoordinate(String[] string, Ship ship, boolean first)
 			throws NumberFormatException {
 		// is it the first or last coordinate,
 		// just for error message
+		//flco: kan met ternaire operatie
 		String coordinate = "last";
 		if (first) {
 			coordinate = "first";
 		}
 		// check format size (2 ints, after seperating)
+		//error kan een aparte functie zijn
 		if (string.length != 2) {
 			ErrorMessage.message("Your " + coordinate + " coordinate for shiptype " + ship.getClass().getName()
 					+ " does not respect the size of 3 characters, it has got " + string.length

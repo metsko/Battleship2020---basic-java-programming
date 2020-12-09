@@ -36,7 +36,7 @@ public abstract class Ship {
 				// end loop to add coordinates
 			}
 		} // end if
-		else
+		else //flco: inconsistente hakenplaatsing
 			for (int i = 0; i < this.getSize(); i++) {
 				cooList.add(new Coordinate(this.getCoo()[0].getX(), this.getCoo()[0].getY() + i));
 			} // end loop to add coordinates

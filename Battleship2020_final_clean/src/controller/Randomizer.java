@@ -18,6 +18,8 @@ public class Randomizer {
 	List<Integer> availableColumns;
 	int[][] takenCoo;
 	Board board;
+	//flco: doe intialisatie best in constructor
+	//is het nodig voor al deze op deze lijsten globaal te hebben? je gebruik shipsnotpositioned bv enkel in randomizer
 	ArrayList<Ship> ships = new ArrayList<>();
 	ArrayList<Ship> shipsNotPositioned;
 	ArrayList<Coordinate> possibleRowPositions;
@@ -32,6 +34,7 @@ public class Randomizer {
 
 	@SuppressWarnings("unchecked")
 
+	//flco: zeeeeeer grote functie, is het mogelijk om deze op te splitsen in kleiner functies?
 	public Ship[] randomizer(Game game) {
 		// get board dimensions
 		this.dimX = game.getBoard().getDim()[0]; // if dimX = 4 => 4 columns: 0,1,2,3,4
@@ -106,6 +109,7 @@ public class Randomizer {
 		return ships.toArray(Ship[]::new);
 	}
 
+	//flco: is deze comment hieronder nodig? kan de code zo geschreven worden dat deze voor zichzelf spreekt?
 	public ArrayList<Coordinate> getPossibleHorizontalStartPositions(Ship ship) {
 		// loop over all availble rows (y-dimension) and then loop over all possible
 		// start positions
@@ -132,13 +136,14 @@ public class Randomizer {
 						// added=0;
 						cooRowList.add(new Coordinate(s, r));
 					} // end if
-				} // end else
+				} // end else //flco: redundante comments
 			} // end for loop
 		} // end first for loop
 			// return possible, horizontal start positions
 		return cooRowList;
 	}
 
+	//flco: probeer consistent te zijn in comment stijl, hierboven heb je meerdere lijnen // // nu /* */ 
 	public ArrayList<Coordinate> getPossibleVerticalStartPositions(Ship ship) {
 		/*
 		 * Get horizontal board dimension => loop over columns by traversing board
@@ -154,6 +159,7 @@ public class Randomizer {
 			// need counter for more than size times unoccupied position
 			// int added =0;
 			// traverse column and check for start coordinates such that ship fits
+			// flco: nested fors en ifs eventueel herbekijken
 			for (int i = 0; i <= dimY; i++) { // i: 0,1,2,3,...,dimY-1
 				if (takenColumns[i] == 100) {
 					count = 0;
@@ -218,6 +224,7 @@ public class Randomizer {
 		return column;
 	}
 
+	//flco: i like streamz, zeer schone functies hier ;) 
 	public static ArrayList<Ship> getHorizontalShips(ArrayList<Ship> Ship) {
 		return (ArrayList<Ship>) Ship.stream().filter(s -> s.getCoo()[0].getY() == s.getCoo()[1].getY())
 				.collect(Collectors.toList());
@@ -228,6 +235,7 @@ public class Randomizer {
 				.collect(Collectors.toList());
 	}
 
+	//flco: dit kan op 1 lijn met ternaire operators ;) 
 	public static int bernoulli() {
 		double rand = Math.random();
 		if (rand < 0.5) {
@@ -237,6 +245,7 @@ public class Randomizer {
 		}
 	}
 
+	//flco: comments zijn mogelijks redundant sinds de documentatie hiervan zeer toegankelijk is
 	public static int uniform(int x) {
 		double rand = Math.random(); // This method returns a pseudorandom double greater than or equal to 0.0 and
 										// less than 1.0.

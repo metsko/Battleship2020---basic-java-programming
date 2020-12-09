@@ -10,6 +10,7 @@ import java.util.*;
 import model.*;
 import view.*;
 
+//flco: belangrijkste opmerking staat op lijn 183
 public class Controller {
 
     private StartScreen startScreen;

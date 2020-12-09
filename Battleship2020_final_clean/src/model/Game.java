@@ -8,6 +8,7 @@ import controller.Randomizer;
 public class Game {
 	public final static String title = "Battleship2020";
 	private Player[] winningPlayers;
+	//flco: onzeker over het final zijn hiervan? is het een optie van dit te initializeren, negeer maar als dit een bewuste keuze is
 	private final ArrayList<Round> rounds = new ArrayList<>();
 	private Player[] playerArray = new Player[2];
 	private final Board board;
@@ -35,6 +36,7 @@ public class Game {
 		coo = new Coordinate[2];
 		int x0 = Randomizer.uniform(Board.minDim[0]); // => randomizer.uniform(5) => 6 options
 		int y0 = Randomizer.uniform(Board.minDim[1]);
+		//flco: enkele redundante lijnen code
 		Coordinate cooStart = new Coordinate(x0, y0);
 		Coordinate cooEnd = new Coordinate(x0, y0);
 		coo[0] = cooStart;
